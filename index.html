@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Calm Pup — Calm dog, calm home.</title>
+<meta property="og:image" content="https://emmrykennedyjr-lang.github.io/thecalmpup/img/hero.jpg">
 <meta name="description" content="Calming chews, calming beds, anxiety shirts and puzzle toys for anxious, bored and destructive dogs. 30-day happy-dog guarantee.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -78,6 +79,7 @@ h1 em{font-style:normal;color:var(--o)}
 .prob:hover,.prob.on{border-color:var(--o);transform:translateY(-3px)}
 .prob.on{background:#fff7f2}
 .prob .e{font-size:38px}
+.prob .pimg{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block}
 .prob b{display:block;font-size:17px;margin:8px 0 4px;line-height:1.25}
 .prob small{color:var(--mut);font-weight:600;font-size:14px}
 @media(max-width:860px){.probs{grid-template-columns:1fr 1fr}}
@@ -94,7 +96,7 @@ h1 em{font-style:normal;color:var(--o)}
 .card.hl{border-color:var(--o);box-shadow:0 0 0 6px rgba(255,107,53,.15)}
 .card.dim{opacity:.45}
 .pic{aspect-ratio:4/3;display:grid;place-items:center;font-size:84px;position:relative;cursor:pointer}
-.pic img{width:100%;height:100%;object-fit:cover}
+.pic img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .badge{position:absolute;top:12px;left:12px;background:var(--o);color:#fff;font-size:11px;font-weight:900;padding:5px 10px;border-radius:999px;letter-spacing:.4px}
 .info{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
 .info h3{font-size:18px;line-height:1.25}
@@ -431,33 +433,33 @@ const CONFIG={
 };
 
 const P=[
- {id:"calm", n:"Calm Daily Chews (60 ct)",e:"🍖",p:29.99,sub:25.49,b:"NEW · SUBSCRIBE & SAVE",bg:"#dcefe0",img:"",variant:"",
+ {id:"calm", n:"Calm Daily Chews (60 ct)",e:"🍖",p:29.99,sub:25.49,b:"NEW · SUBSCRIBE & SAVE",bg:"#dcefe0",img:"img/chews.jpg",variant:"",
   s:"A daily soft chew with L-theanine, chamomile and vitamin B1. One a day, or before storms, car rides and vet trips.",
   pts:["L-theanine + chamomile + thiamine (B1)","Chicken flavor, soft chew","Made in the USA","Subscribe: $25.49 every 30 days, skip or cancel anytime"],probs:["alone","storm","chew","bored"]},
- {id:"bed",  n:"Calming Donut Bed", e:"🛏️",p:38,b:"HERO PICK",bg:"#f3e6ff",img:"",variant:"",
+ {id:"bed",  n:"Calming Donut Bed", e:"🛏️",p:38,b:"HERO PICK",bg:"#f3e6ff",img:"img/bed.jpg",variant:"",
   s:"A raised, sink-in rim that feels like being curled up next to you.",
   pts:["Raised rim supports the head & neck","Faux-fur that dogs love to burrow in","Machine-washable cover","Sizes S–XL"],probs:["alone","storm"]},
- {id:"shirt",n:"Calming Anxiety Shirt",e:"👕",p:32,bg:"#e4f1ff",img:"",variant:"",
+ {id:"shirt",n:"Calming Anxiety Shirt",e:"👕",p:32,bg:"#e4f1ff",img:"img/shirt.jpg",variant:"",
   s:"Gentle, constant pressure — like a hug — for storms, fireworks and car rides.",
   pts:["Velcro wrap, on in 30 seconds","Breathable, wear for hours","Use for storms, fireworks, vet visits, travel","Sizes XS–XL"],probs:["storm","alone"]},
- {id:"ball", n:"Puzzle Treat Ball", e:"🧩",p:22,b:"MOST GIFTED",bg:"#dff5ee",img:"",variant:"",
+ {id:"ball", n:"Puzzle Treat Ball", e:"🧩",p:22,b:"MOST GIFTED",bg:"#dff5ee",img:"img/ball.jpg",variant:"",
   s:"Fill with kibble, hand it over as you leave. 20+ minutes of focused work.",
   pts:["Adjustable difficulty","Turns goodbyes into treat time","Tough, food-safe material","Dishwasher safe"],probs:["alone","chew","bored"]},
- {id:"bowl", n:"Slow Feeder Bowl", e:"🥣",p:18,bg:"#ffe3d1",img:"",variant:"",
+ {id:"bowl", n:"Slow Feeder Bowl", e:"🥣",p:18,bg:"#ffe3d1",img:"img/bowl.jpg",variant:"",
   s:"Turns a 30-second gulp into a 10-minute sniff-and-solve. Fewer upset tummies.",
   pts:["Up to 10× slower eating","Non-slip base","Food-safe, BPA-free","Dishwasher safe"],probs:["bored"]},
- {id:"lick", n:"Calming Lick Mat",e:"👅",p:14,bg:"#ffe0ea",img:"",variant:"",
+ {id:"lick", n:"Calming Lick Mat",e:"👅",p:14,bg:"#ffe0ea",img:"img/lick.jpg",variant:"",
   s:"Spread peanut butter or yogurt, freeze it, and hand it over. Licking is how dogs self-soothe.",
   pts:["Suction cups stick to the tub or floor","Great for baths, nail trims and storms","Food-grade silicone","Dishwasher & freezer safe"],probs:["alone","storm","chew","bored"]},
- {id:"kit",  n:"Calm Home Kit (Bed + Shirt + Puzzle + Chews)",e:"🎁",p:104.99,w:121.99,b:"SAVE $17",bg:"#ffd9c4",img:"",variant:"",
+ {id:"kit",  n:"Calm Home Kit (Bed + Shirt + Puzzle + Chews)",e:"🎁",p:104.99,w:121.99,b:"SAVE $17",bg:"#ffd9c4",img:"img/kit.jpg",variant:"",
   s:"Everything a nervous dog needs: a safe place, a hug, a job, and a daily calming chew.",
   pts:["Calming Donut Bed","Calming Anxiety Shirt","Puzzle Treat Ball","Calm Daily Chews (60 ct)","Free shipping"],probs:[],hide:1}
 ];
 const PROBS=[
- {k:"alone",e:"🚪",t:"Panics when I leave",d:"Howling, pacing, scratching the door",fix:"Calm Daily Chews each morning, plus the Calming Bed and Puzzle Ball when you leave."},
- {k:"storm",e:"⛈️",t:"Terrified of storms & fireworks",d:"Shaking, hiding, won't settle",fix:"Calming Shirt plus a Calm Chew 30–60 min before the noise starts. Lick Mat during it."},
- {k:"chew",e:"🛋️",t:"Destroys everything",d:"Shoes, couch, remote — nothing's safe",fix:"Give them a legal job: Puzzle Ball when you leave, Lick Mat at home, and a daily Calm Chew."},
- {k:"bored",e:"🌀",t:"Bored, wired, inhales food",d:"Zoomies at 10pm, done eating in 20 sec",fix:"Slow Feeder at mealtime, Lick Mat or Puzzle Ball after. A tired dog is a calm dog."}
+ {k:"alone",img:"img/p_alone.jpg",e:"🚪",t:"Panics when I leave",d:"Howling, pacing, scratching the door",fix:"Calm Daily Chews each morning, plus the Calming Bed and Puzzle Ball when you leave."},
+ {k:"storm",img:"img/p_storm.jpg",e:"⛈️",t:"Terrified of storms & fireworks",d:"Shaking, hiding, won't settle",fix:"Calming Shirt plus a Calm Chew 30–60 min before the noise starts. Lick Mat during it."},
+ {k:"chew",img:"img/p_chew.jpg",e:"🛋️",t:"Destroys everything",d:"Shoes, couch, remote — nothing's safe",fix:"Give them a legal job: Puzzle Ball when you leave, Lick Mat at home, and a daily Calm Chew."},
+ {k:"bored",img:"img/p_bored.jpg",e:"🌀",t:"Bored, wired, inhales food",d:"Zoomies at 10pm, done eating in 20 sec",fix:"Slow Feeder at mealtime, Lick Mat or Puzzle Ball after. A tired dog is a calm dog."}
 ];
 
 const $=id=>document.getElementById(id), money=n=>"$"+n.toFixed(2), byId=id=>P.find(x=>x.id===id);
@@ -469,7 +471,7 @@ function pic(x,big){return `<div class="pic" style="background:${x.bg}" ${big?""
 function priceHTML(x){return x.w?`${money(x.p)}<s>${money(x.w)}</s><em>Save ${money(x.w-x.p)}</em>`:money(x.p)}
 function btnLabel(){return WL?"Get early access":"Add to cart"}
 function renderProbs(){
-  $("probs").innerHTML=PROBS.map(p=>`<button class="prob ${prob===p.k?"on":""}" onclick="pickProb('${p.k}')"><div class="e">${p.e}</div><b>${p.t}</b><small>${p.d}</small></button>`).join("");
+  $("probs").innerHTML=PROBS.map(p=>`<button class="prob ${prob===p.k?"on":""}" onclick="pickProb('${p.k}')">${p.img?`<img class="pimg" src="${p.img}" alt="" loading="lazy">`:`<div class="e">${p.e}</div>`}<b>${p.t}</b><small>${p.d}</small></button>`).join("");
 }
 function renderGrid(){
   $("grid").innerHTML=P.filter(x=>!x.hide).map(x=>{
@@ -570,7 +572,7 @@ $("cartlbl").textContent=WL?"Early access":"Cart";$("count").style.display=WL?"n
 document.querySelectorAll(".mailto").forEach(a=>{a.href="mailto:"+CONFIG.email;if(!a.textContent)a.textContent=CONFIG.email});
 $("yr").textContent=new Date().getFullYear();
 if(!CONFIG.formEndpoint)$("dev").style.display="block";
-if(byId("bed").img)$("heroart").innerHTML=`<img src="${byId("bed").img}" alt="Calming Donut Bed">`;
+$("heroart").insertAdjacentHTML("afterbegin",`<img src="img/hero.jpg" alt="A corgi fast asleep on a soft orange dog bed" style="position:absolute;inset:0">`);$("heroart").childNodes.forEach(n=>{if(n.nodeType===3)n.remove()});
 renderProbs();renderGrid();upd();
 </script>
 </body>
