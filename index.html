@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Calm Pup — Calm dog, calm home.</title>
+<meta name="description" content="Calming chews, calming beds, anxiety shirts and puzzle toys for anxious, bored and destructive dogs. 30-day happy-dog guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--o:#FF6B35;--o2:#e85a26;--cream:#FFF8F0;--ink:#2D2D2D;--mut:#6b6b6b;--line:#f0e4d6;--g:#1f9d55;--soft:#ffe6d9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.center{text-align:center}
+section{padding:64px 0}
+.h2{font-size:clamp(28px,3.6vw,40px);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:10px}
+.lead{color:var(--mut);font-size:17px;max-width:620px;margin:0 auto 30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--o);color:#fff;font-weight:900;font-size:17px;padding:16px 30px;border-radius:999px;box-shadow:0 6px 0 var(--o2);transition:.12s}
+.btn:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--o2)}
+.btn.dark{background:var(--ink);box-shadow:0 6px 0 #000}
+.btn.line{background:#fff;color:var(--ink);box-shadow:none;border:2px solid var(--ink)}
+.btn.full{width:100%}
+
+/* dev banner — only shows while email isn't connected */
+#dev{display:none;background:#fff3b0;color:#5c4a00;font-size:13px;font-weight:700;text-align:center;padding:8px 12px}
+
+/* announcement + header */
+.bar{background:var(--ink);color:#fff;text-align:center;font-size:13px;font-weight:700;padding:9px 12px}
+.bar b{color:#ffb38f}
+header{position:sticky;top:0;z-index:50;background:rgba(255,248,240,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-weight:900;font-size:24px;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+.logo span{background:var(--o);color:#fff;border-radius:12px;width:36px;height:36px;display:grid;place-items:center;font-size:19px}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:800;font-size:15px}
+.nav ul a{padding:6px 2px;border-bottom:2px solid transparent}
+.nav ul a:hover,.nav ul a.on{color:var(--o);border-color:var(--o)}
+.navr{display:flex;gap:10px;align-items:center}
+.cartbtn{white-space:nowrap;background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-weight:800;font-size:14px;display:flex;gap:8px;align-items:center}
+.cartbtn i{background:var(--o);font-style:normal;border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
+.burger{display:none;font-size:26px;width:42px;height:42px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.mnav{display:none;flex-direction:column;background:#fff;border-bottom:1px solid var(--line)}
+.mnav a{padding:16px 20px;font-weight:800;font-size:17px;border-top:1px solid var(--line)}
+.mnav.on{display:flex}
+@media(max-width:820px){.nav ul{display:none}.burger{display:grid;place-items:center}}
+
+/* hero */
+.hero{padding:48px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.pill{display:inline-block;background:var(--soft);color:var(--o2);font-weight:800;font-size:13px;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+h1{font-size:clamp(38px,5.4vw,62px);line-height:1.04;font-weight:900;letter-spacing:-1.5px}
+h1 em{font-style:normal;color:var(--o)}
+.hero p.sub{font-size:19px;color:var(--mut);margin:18px 0 26px;max-width:520px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.ticks{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;font-weight:700;font-size:14px;color:var(--mut)}
+.ticks span::before{content:"✓ ";color:var(--g);font-weight:900}
+.heroart{background:linear-gradient(145deg,#ffd9c4,#ffb48d);border-radius:36px;aspect-ratio:1/1;display:grid;place-items:center;font-size:150px;position:relative;box-shadow:0 30px 60px -25px rgba(255,107,53,.55);overflow:hidden}
+.heroart img{width:100%;height:100%;object-fit:cover}
+.float{position:absolute;background:#fff;border-radius:16px;padding:10px 14px;font-size:13px;font-weight:800;box-shadow:0 12px 30px -10px rgba(0,0,0,.25)}
+.float.a{left:14px;top:14px}.float.b{right:14px;bottom:14px}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.heroart{max-width:300px;width:100%;margin:auto;font-size:90px;order:-1}.float{font-size:11px;padding:7px 10px}}
+
+/* trust strip */
+.trust{background:#fff;border-block:1px solid var(--line);padding:18px 0}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.trust div{display:flex;align-items:center;gap:12px;font-weight:800;font-size:14px}
+.trust small{display:block;font-weight:600;color:var(--mut);font-size:12.5px}
+.trust .ic{font-size:26px}
+@media(max-width:760px){.trust .wrap{grid-template-columns:1fr 1fr}}
+
+/* shop by problem */
+.probs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prob{background:#fff;border:2px solid var(--line);border-radius:22px;padding:22px 18px;text-align:left;transition:.15s}
+.prob:hover,.prob.on{border-color:var(--o);transform:translateY(-3px)}
+.prob.on{background:#fff7f2}
+.prob .e{font-size:38px}
+.prob b{display:block;font-size:17px;margin:8px 0 4px;line-height:1.25}
+.prob small{color:var(--mut);font-weight:600;font-size:14px}
+@media(max-width:860px){.probs{grid-template-columns:1fr 1fr}}
+.rec{display:none;margin-top:22px;background:var(--ink);color:#fff;border-radius:18px;padding:16px 20px;font-weight:700;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.rec.on{display:flex}
+.rec button{color:#ffb38f;font-weight:800}
+
+/* products */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:22px;overflow:hidden;border:2px solid transparent;display:flex;flex-direction:column;transition:.15s}
+.card:hover{box-shadow:0 18px 36px -18px rgba(0,0,0,.25)}
+.card.hl{border-color:var(--o);box-shadow:0 0 0 6px rgba(255,107,53,.15)}
+.card.dim{opacity:.45}
+.pic{aspect-ratio:4/3;display:grid;place-items:center;font-size:84px;position:relative;cursor:pointer}
+.pic img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:12px;left:12px;background:var(--o);color:#fff;font-size:11px;font-weight:900;padding:5px 10px;border-radius:999px;letter-spacing:.4px}
+.info{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.info h3{font-size:18px;line-height:1.25}
+.info p{color:var(--mut);font-size:14.5px;font-weight:600}
+.price{font-size:22px;font-weight:900;margin-top:auto}
+.price s{color:#aaa;font-size:15px;font-weight:700;margin-left:8px}
+.price em{font-style:normal;background:#e3f6ea;color:var(--g);font-size:12px;padding:3px 8px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.row{display:flex;gap:8px}
+.row .btn{padding:13px 16px;font-size:15px;flex:1;box-shadow:0 4px 0 var(--o2)}
+.row .more{padding:13px 14px;border-radius:999px;border:2px solid var(--line);font-weight:800;font-size:14px}
+
+/* bundle */
+.bundle{background:var(--ink);color:#fff;border-radius:32px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.bundle .h2{color:#fff}
+.bundle p{color:#d6d6d6;font-size:17px}
+.bitems{display:flex;gap:12px;margin:22px 0}
+.bitems div{background:#3b3b3b;border-radius:18px;flex:1;padding:16px 8px;text-align:center;font-size:40px}
+.bitems small{display:block;font-size:12px;font-weight:800;color:#ddd;margin-top:6px}
+.bprice{font-size:34px;font-weight:900}
+.bprice s{color:#999;font-size:20px;margin-left:10px}
+.bundle.light{background:#e6f4ea;color:var(--ink)}.bundle.light .h2{color:var(--ink)}.bundle.light p{color:#3d4a40}.bundle.light .bitems div{background:#fff}.bundle.light .bitems small{color:#3d4a40}.bundle.light .bprice s{color:#7d8a80}
+@media(max-width:820px){.bundle{grid-template-columns:1fr;padding:28px}}
+
+/* how it works / compare */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:#fff;border-radius:22px;padding:26px}
+.step .n{width:42px;height:42px;border-radius:50%;background:var(--o);color:#fff;font-weight:900;display:grid;place-items:center;font-size:18px;margin-bottom:12px}
+.step b{font-size:18px}
+.step p{color:var(--mut);font-weight:600;margin-top:6px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+table.cmp{width:100%;max-width:760px;margin:0 auto;border-collapse:separate;border-spacing:0;background:#fff;border-radius:22px;overflow:hidden;font-weight:700}
+.cmp th,.cmp td{padding:15px 16px;text-align:center;border-bottom:1px solid var(--line)}
+.cmp th:first-child,.cmp td:first-child{text-align:left}
+.cmp thead th{background:var(--soft)}
+.cmp thead th.us{background:var(--o);color:#fff}
+.cmp tr:last-child td{border-bottom:0}
+.y{color:var(--g);font-size:20px}.n{color:#c9c9c9;font-size:20px}
+
+/* guarantee */
+.guar{background:#fff;border:2px dashed var(--o);border-radius:28px;padding:34px;display:flex;gap:26px;align-items:center}
+.guar .seal{font-size:70px;flex:none}
+.guar p{color:var(--mut);font-weight:600;font-size:16px;margin-top:6px}
+@media(max-width:640px){.guar{flex-direction:column;text-align:center}}
+
+/* FAQ */
+.faq{max-width:760px;margin:0 auto}
+.faq details{background:#fff;border-radius:16px;margin-bottom:12px;padding:0 20px}
+.faq summary{list-style:none;cursor:pointer;font-weight:800;font-size:17px;padding:18px 0;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;color:var(--o);line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--mut);font-weight:600;padding-bottom:18px}
+
+/* email */
+.email{background:var(--o);color:#fff;border-radius:32px;padding:48px 28px;text-align:center}
+.email h2{font-size:clamp(26px,3.4vw,38px);font-weight:900;letter-spacing:-.8px}
+.email p{opacity:.95;font-size:17px;margin-top:6px}
+.eform{display:flex;gap:10px;max-width:480px;margin:22px auto 0}
+.eform input{flex:1;padding:16px 20px;border-radius:999px;border:0;font:inherit;font-size:16px;min-width:0}
+.eform button{background:var(--ink);color:#fff;font-weight:900;padding:0 24px;border-radius:999px;white-space:nowrap}
+.fine{font-size:13px;opacity:.85;margin-top:12px}
+@media(max-width:520px){.eform{flex-direction:column}.eform button{padding:15px}}
+
+footer{padding:40px 0 100px;color:var(--mut);font-size:14px;font-weight:600}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a:hover{color:var(--o)}
+
+/* sticky mobile CTA */
+.mcta{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:40}
+@media(max-width:820px){.mcta.on{display:block}}
+
+/* overlays: drawer + modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:90;opacity:0;pointer-events:none;transition:.2s}
+.ov.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:#fff;z-index:100;transform:translateX(100%);transition:.25s;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid var(--line);font-weight:900;font-size:20px}
+.x{font-size:28px;line-height:1;width:40px;height:40px;border-radius:50%}
+.x:hover{background:var(--cream)}
+.ship{padding:14px 20px;background:var(--cream);font-weight:700;font-size:14px}
+.meter{height:8px;background:#eee;border-radius:9px;margin-top:8px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--g);width:0;transition:.3s}
+#items{flex:1;overflow:auto;padding:8px 20px}
+.it{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.th{width:60px;height:60px;border-radius:14px;display:grid;place-items:center;font-size:30px;overflow:hidden}
+.th img{width:100%;height:100%;object-fit:cover}
+.q{display:flex;gap:10px;align-items:center;margin-top:6px;font-weight:800}
+.q button{width:28px;height:28px;border-radius:50%;background:var(--cream);font-weight:900}
+.mt{text-align:center;color:var(--mut);padding:50px 0;font-weight:700}
+.df{padding:20px;border-top:1px solid var(--line)}
+.df .tot{display:flex;justify-content:space-between;font-weight:900;font-size:20px;margin-bottom:14px}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%);opacity:0;pointer-events:none;z-index:110;background:#fff;border-radius:26px;width:min(760px,94vw);max-height:90vh;overflow:auto;transition:.2s}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.mbody{display:grid;grid-template-columns:1fr 1fr}
+.mbody .pic{aspect-ratio:auto;min-height:300px;cursor:default;font-size:120px}
+.mtext{padding:28px;display:flex;flex-direction:column;gap:12px}
+.mtext ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-weight:700}
+.mtext li::before{content:"✓ ";color:var(--g);font-weight:900}
+.mclose{position:absolute;top:10px;right:10px;background:#fff;z-index:2}
+@media(max-width:680px){.mbody{grid-template-columns:1fr}.mbody .pic{min-height:220px}}
+#wl .mtext{padding:34px}
+#wl input{padding:15px 18px;border-radius:14px;border:2px solid var(--line);font:inherit;font-size:16px;width:100%}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,140px);background:var(--ink);color:#fff;padding:13px 22px;border-radius:99px;font-weight:800;z-index:120;transition:.25s;max-width:92vw;text-align:center}
+.toast.on{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<div id="dev">⚙️ Setup mode: email form isn't connected yet — signups are NOT being saved. Paste your Formspree link into CONFIG at the bottom of this file.</div>
+<div class="bar" id="bar"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span>🐾</span>The Calm Pup</a>
+    <ul>
+      <li><a href="#problems">Find a fix</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#chews">Calming Chews</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="navr">
+      <button class="cartbtn" id="cartbtn" onclick="openCart()">🛒 <span id="cartlbl">Cart</span> <i id="count">0</i></button>
+      <button class="burger" aria-label="Menu" onclick="$('mnav').classList.toggle('on')">☰</button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" onclick="this.classList.remove('on')">
+    <a href="#problems">🔎 Find a fix for my dog</a>
+    <a href="#shop">🛍️ Shop all</a>
+    <a href="#chews">🍖 Calming Chews</a>
+    <a href="#bundle">🎁 Calm Home Kit</a>
+    <a href="#how">💡 How it works</a>
+    <a href="#faq">❓ FAQ</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill">For anxious, bored &amp; destructive dogs</span>
+      <h1>Calm dog.<br><em>Calm home.</em></h1>
+      <p class="sub">Chewed couch? Howling when you leave? Panic at every storm? Daily calming chews plus simple tools that give your dog something better to do, and help them feel safe when you're not there.</p>
+      <div class="ctas">
+        <a href="#problems" class="btn">Find the right fix →</a>
+        <a href="#shop" class="btn line">Shop all</a>
+      </div>
+      <div class="ticks"><span>30-day happy-dog guarantee</span><span>Free US shipping $50+</span><span>Skip or cancel subscriptions anytime</span></div>
+    </div>
+    <div class="heroart" id="heroart">🐕
+      <div class="float a">🍖 Daily Calming Chews</div>
+      <div class="float b">💤 Built for nervous nappers</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div><span class="ic">🚚</span><span>Free shipping<small>On US orders $50+</small></span></div>
+    <div><span class="ic">↩️</span><span>30-day guarantee<small>Not happy? Full refund</small></span></div>
+    <div><span class="ic">🔒</span><span>Secure checkout<small>Cards, Apple Pay, PayPal</small></span></div>
+    <div><span class="ic">💬</span><span>Real humans<small>Reply within 24h</small></span></div>
+  </div>
+</div>
+
+<section id="problems">
+  <div class="wrap">
+    <div class="center"><h2 class="h2">What's going on with your dog?</h2><p class="lead">Tap the one that sounds like home. We'll show you exactly what helps — no scrolling through 200 products.</p></div>
+    <div class="probs" id="probs"></div>
+    <div class="rec" id="rec"><span id="rectext"></span><button onclick="clearProb()">Show everything ×</button></div>
+  </div>
+</section>
+
+<section id="shop" style="padding-top:20px">
+  <div class="wrap">
+    <div class="center"><h2 class="h2">The calm-dog collection</h2><p class="lead">A short list. Each one picked for a specific problem. That's the whole store, on purpose.</p></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="chews" style="padding-top:10px">
+  <div class="wrap">
+    <div class="bundle light">
+      <div>
+        <span class="pill">NEW · SUBSCRIBE &amp; SAVE 15%</span>
+        <h2 class="h2">Calm Daily Chews</h2>
+        <p>A soft, chicken-flavored chew with L-theanine, chamomile and thiamine (vitamin B1), ingredients used in popular calming supplements for dogs. Give one a day, or 30–60 minutes before storms, fireworks, car rides and vet visits.</p>
+        <div class="bitems"><div>🌿<small>L-Theanine</small></div><div>🌼<small>Chamomile</small></div><div>💊<small>Vitamin B1</small></div></div>
+        <p style="font-size:12px!important;margin-top:14px">Made in the USA. Supplement for dogs. Not intended to diagnose, treat, cure or prevent any disease. Ask your vet first if your dog is pregnant, nursing or on medication.</p>
+      </div>
+      <div>
+        <div class="bprice" id="cprice"></div>
+        <p style="margin:10px 0 22px" id="csub"></p>
+        <button class="btn full" id="cbtn" onclick="primary('calm')"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bundle" style="padding-top:10px">
+  <div class="wrap">
+    <div class="bundle">
+      <div>
+        <span class="pill">BEST VALUE · SAVE $17</span>
+        <h2 class="h2">The Calm Home Kit</h2>
+        <p>What we'd hand any new owner of a nervous dog: a safe place to rest, gentle pressure for scary moments, a job to do while you're gone, and a month of calming chews.</p>
+        <div class="bitems"><div>🛏️<small>Calming Bed</small></div><div>👕<small>Calming Shirt</small></div><div>🧩<small>Puzzle Ball</small></div><div>🍖<small>Calm Chews</small></div></div>
+      </div>
+      <div>
+        <div class="bprice" id="bprice"></div>
+        <p style="margin:10px 0 22px">Ships free. Covered by the 30-day guarantee, like everything else.</p>
+        <button class="btn full" id="bbtn" onclick="primary('kit')"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="center"><h2 class="h2">How it works</h2><p class="lead">Most "bad" behavior is a dog that's anxious or bored. Fix the feeling and the behavior follows.</p></div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><b>Pick the problem</b><p>Tap what your dog does. We match you to the 1–2 tools that actually target it.</p></div>
+      <div class="step"><div class="n">2</div><b>Give it two weeks</b><p>New routines take time. Use it daily — bed in the same spot, puzzle ball when you leave.</p></div>
+      <div class="step"><div class="n">3</div><b>Love it or return it</b><p>No change in 30 days? Email us and get your money back. No forms, no hoops.</p></div>
+    </div>
+    <div style="margin-top:44px"><table class="cmp">
+      <thead><tr><th></th><th class="us">The Calm Pup</th><th>Big pet store</th></tr></thead>
+      <tbody>
+        <tr><td>Organized by your dog's problem</td><td class="y">✓</td><td class="n">✕</td></tr>
+        <tr><td>Under 10 hand-picked products</td><td class="y">✓</td><td class="n">✕</td></tr>
+        <tr><td>30-day guarantee, even if used</td><td class="y">✓</td><td class="n">✕</td></tr>
+        <tr><td>Real person answers your email</td><td class="y">✓</td><td class="n">✕</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="guar">
+      <div class="seal">🐶</div>
+      <div><h2 class="h2" style="font-size:28px">The 30-day happy-dog guarantee</h2><p>Try anything for 30 days. If your dog doesn't love it — or it just doesn't help — email us and we'll refund you. Even if it's been slept on, chewed on, or drooled on.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="center"><h2 class="h2">Questions</h2><p class="lead">Can't find it? Email <a href="#" class="mailto" style="color:var(--o);font-weight:800"></a></p></div>
+    <div class="faq">
+      <details><summary>Will this fix my dog's anxiety?</summary><p>Honest answer: these are comfort and enrichment tools, not medicine. Many dogs settle noticeably with a safe bed, gentle pressure, and something to do — but severe separation anxiety deserves a chat with your vet or a certified trainer. That's also why we have the 30-day guarantee.</p></details>
+      <details><summary>What's in the Calm Daily Chews, and are they safe?</summary><p>Each soft chew contains L-theanine, chamomile and thiamine (vitamin B1) in a chicken-flavored base, made in a US facility. The exact amounts are printed on the label. They're a supplement, not medicine. Start with half the label dose for the first few days. If your dog is pregnant, nursing, on medication, or has a health condition, ask your vet before starting. For severe anxiety, talk to your vet: prescription options exist and work.</p></details>
+      <details><summary>How does the chew subscription work?</summary><p>A fresh tub ships every 30 days at 15% off. Skip a month, change the date, or cancel from your account or by replying to any email. No fees, no phone calls.</p></details>
+      <details><summary>How long does shipping take?</summary><p>Calming Chews ship from the US and typically arrive in 3–6 business days. Beds, shirts and toys are processed in 1–3 business days and typically arrive in 7–12 business days. Big orders may arrive in two packages. You'll get a tracking link by email as soon as it ships.</p></details>
+      <details><summary>Which bed size do I need?</summary><p>Measure your dog nose-to-tail while lying down and add 6 inches. Small: up to 25 lb · Medium: 25–45 lb · Large: 45–80 lb · XL: 80+ lb. Between sizes? Go up — anxious dogs love to sink in.</p></details>
+      <details><summary>How does the calming shirt fit?</summary><p>It should be snug like a hug, not tight. Measure around the widest part of the chest. You should be able to slide two fingers under it.</p></details>
+      <details><summary>What if my dog destroys it?</summary><p>Inside 30 days, it's covered — email us a photo. The puzzle ball is built for heavy chewers, but no toy is indestructible, so supervise the first few sessions.</p></details>
+      <details><summary>How do returns work?</summary><p>Email us within 30 days of delivery with your order number. We'll refund you — usually no need to ship anything back.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="join" style="padding-top:0">
+  <div class="wrap">
+    <div class="email">
+      <h2 id="ehead"></h2>
+      <p id="esub"></p>
+      <form class="eform" onsubmit="return signup(event,this,'footer')">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <button type="submit" id="ebtn"></button>
+      </form>
+      <div class="fine">No spam. Unsubscribe anytime.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b class="logo" style="font-size:18px"><span style="width:28px;height:28px;font-size:14px">🐾</span>The Calm Pup</b><div style="margin-top:8px">© <span id="yr"></span> The Calm Pup. Made for nervous good boys &amp; girls.</div><div style="margin-top:8px;font-size:12px;max-width:520px">Our chews are dietary supplements for dogs. They are not intended to diagnose, treat, cure or prevent any disease. Always consult your veterinarian for medical concerns.</div></div>
+    <nav><a href="#shop">Shop</a><a href="#faq">Shipping &amp; returns</a><a href="#" class="mailto">Contact</a><a href="#faq">Privacy</a></nav>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a href="#problems" class="btn full">🔎 Find the right fix</a></div>
+
+<div class="ov" id="ov" onclick="closeAll()"></div>
+
+<aside class="drawer" id="drawer">
+  <div class="dh">Your cart <button class="x" onclick="closeAll()">×</button></div>
+  <div class="ship"><span id="shipmsg"></span><div class="meter"><i id="meter"></i></div></div>
+  <div id="items"></div>
+  <div class="df">
+    <div class="tot"><span>Total</span><span id="tot">$0.00</span></div>
+    <button class="btn full" onclick="checkout()">Checkout securely →</button>
+  </div>
+</aside>
+
+<div class="modal" id="pm"><button class="x mclose" onclick="closeAll()">×</button><div class="mbody" id="pmbody"></div></div>
+
+<div class="modal" id="wl" style="width:min(460px,94vw)">
+  <button class="x mclose" onclick="closeAll()">×</button>
+  <div class="mtext">
+    <h2 class="h2" style="font-size:28px" id="wlh">Get early access</h2>
+    <p style="color:var(--mut);font-weight:600" id="wlp"></p>
+    <form onsubmit="return signup(event,this,'modal')" style="display:flex;flex-direction:column;gap:10px">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button class="btn full" type="submit">Save my spot + 15% off</button>
+    </form>
+    <div style="font-size:13px;color:var(--mut)">No spam. One email when we launch.</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   CONFIG — the only part you should need to edit
+   ============================================================
+   mode: "waitlist" → buttons collect emails (use BEFORE the store exists)
+         "shop"     → real cart + checkout through Shopify
+   formEndpoint: free Formspree form URL, e.g. https://formspree.io/f/abcdwxyz
+   shopDomain:   your-store.myshopify.com   (shop mode only)
+   variant:      each product's Shopify variant ID (shop mode only)
+   img:          product photo URL — leave "" to show the emoji placeholder
+*/
+const CONFIG={
+  mode:"waitlist",
+  formEndpoint:"https://formsubmit.co/ajax/kennedyemmry2@gmail.com",
+  shopDomain:"",
+  email:"kennedyemmry2@gmail.com",
+  freeShipAt:50
+};
+
+const P=[
+ {id:"calm", n:"Calm Daily Chews (60 ct)",e:"🍖",p:29.99,sub:25.49,b:"NEW · SUBSCRIBE & SAVE",bg:"#dcefe0",img:"",variant:"",
+  s:"A daily soft chew with L-theanine, chamomile and vitamin B1. One a day, or before storms, car rides and vet trips.",
+  pts:["L-theanine + chamomile + thiamine (B1)","Chicken flavor, soft chew","Made in the USA","Subscribe: $25.49 every 30 days, skip or cancel anytime"],probs:["alone","storm","chew","bored"]},
+ {id:"bed",  n:"Calming Donut Bed", e:"🛏️",p:38,b:"HERO PICK",bg:"#f3e6ff",img:"",variant:"",
+  s:"A raised, sink-in rim that feels like being curled up next to you.",
+  pts:["Raised rim supports the head & neck","Faux-fur that dogs love to burrow in","Machine-washable cover","Sizes S–XL"],probs:["alone","storm"]},
+ {id:"shirt",n:"Calming Anxiety Shirt",e:"👕",p:32,bg:"#e4f1ff",img:"",variant:"",
+  s:"Gentle, constant pressure — like a hug — for storms, fireworks and car rides.",
+  pts:["Velcro wrap, on in 30 seconds","Breathable, wear for hours","Use for storms, fireworks, vet visits, travel","Sizes XS–XL"],probs:["storm","alone"]},
+ {id:"ball", n:"Puzzle Treat Ball", e:"🧩",p:22,b:"MOST GIFTED",bg:"#dff5ee",img:"",variant:"",
+  s:"Fill with kibble, hand it over as you leave. 20+ minutes of focused work.",
+  pts:["Adjustable difficulty","Turns goodbyes into treat time","Tough, food-safe material","Dishwasher safe"],probs:["alone","chew","bored"]},
+ {id:"bowl", n:"Slow Feeder Bowl", e:"🥣",p:18,bg:"#ffe3d1",img:"",variant:"",
+  s:"Turns a 30-second gulp into a 10-minute sniff-and-solve. Fewer upset tummies.",
+  pts:["Up to 10× slower eating","Non-slip base","Food-safe, BPA-free","Dishwasher safe"],probs:["bored"]},
+ {id:"lick", n:"Calming Lick Mat",e:"👅",p:14,bg:"#ffe0ea",img:"",variant:"",
+  s:"Spread peanut butter or yogurt, freeze it, and hand it over. Licking is how dogs self-soothe.",
+  pts:["Suction cups stick to the tub or floor","Great for baths, nail trims and storms","Food-grade silicone","Dishwasher & freezer safe"],probs:["alone","storm","chew","bored"]},
+ {id:"kit",  n:"Calm Home Kit (Bed + Shirt + Puzzle + Chews)",e:"🎁",p:104.99,w:121.99,b:"SAVE $17",bg:"#ffd9c4",img:"",variant:"",
+  s:"Everything a nervous dog needs: a safe place, a hug, a job, and a daily calming chew.",
+  pts:["Calming Donut Bed","Calming Anxiety Shirt","Puzzle Treat Ball","Calm Daily Chews (60 ct)","Free shipping"],probs:[],hide:1}
+];
+const PROBS=[
+ {k:"alone",e:"🚪",t:"Panics when I leave",d:"Howling, pacing, scratching the door",fix:"Calm Daily Chews each morning, plus the Calming Bed and Puzzle Ball when you leave."},
+ {k:"storm",e:"⛈️",t:"Terrified of storms & fireworks",d:"Shaking, hiding, won't settle",fix:"Calming Shirt plus a Calm Chew 30–60 min before the noise starts. Lick Mat during it."},
+ {k:"chew",e:"🛋️",t:"Destroys everything",d:"Shoes, couch, remote — nothing's safe",fix:"Give them a legal job: Puzzle Ball when you leave, Lick Mat at home, and a daily Calm Chew."},
+ {k:"bored",e:"🌀",t:"Bored, wired, inhales food",d:"Zoomies at 10pm, done eating in 20 sec",fix:"Slow Feeder at mealtime, Lick Mat or Puzzle Ball after. A tired dog is a calm dog."}
+];
+
+const $=id=>document.getElementById(id), money=n=>"$"+n.toFixed(2), byId=id=>P.find(x=>x.id===id);
+const WL=CONFIG.mode!=="shop";
+let cart={}, prob=null, interest="";
+
+/* ---------- render ---------- */
+function pic(x,big){return `<div class="pic" style="background:${x.bg}" ${big?"":`onclick="quick('${x.id}')"`}>${x.img?`<img src="${x.img}" alt="${x.n}">`:x.e}${x.b&&!big?`<span class="badge">${x.b}</span>`:""}</div>`}
+function priceHTML(x){return x.w?`${money(x.p)}<s>${money(x.w)}</s><em>Save ${money(x.w-x.p)}</em>`:money(x.p)}
+function btnLabel(){return WL?"Get early access":"Add to cart"}
+function renderProbs(){
+  $("probs").innerHTML=PROBS.map(p=>`<button class="prob ${prob===p.k?"on":""}" onclick="pickProb('${p.k}')"><div class="e">${p.e}</div><b>${p.t}</b><small>${p.d}</small></button>`).join("");
+}
+function renderGrid(){
+  $("grid").innerHTML=P.filter(x=>!x.hide).map(x=>{
+    const cls=prob?(x.probs.includes(prob)?"hl":"dim"):"";
+    return `<div class="card ${cls}" id="c-${x.id}">${pic(x)}
+      <div class="info"><h3>${x.n}</h3><p>${x.s}</p>
+      <div class="price">${priceHTML(x)}</div>
+      <div class="row"><button class="btn" onclick="primary('${x.id}')">${btnLabel()}</button><button class="more" onclick="quick('${x.id}')">Details</button></div></div></div>`}).join("");
+}
+function pickProb(k){
+  prob=prob===k?null:k;renderProbs();renderGrid();
+  const p=PROBS.find(x=>x.k===prob);
+  $("rec").classList.toggle("on",!!p);
+  if(p){$("rectext").textContent="✨ Our pick: "+p.fix;setTimeout(()=>$("shop").scrollIntoView({behavior:"smooth"}),150)}
+}
+function clearProb(){prob=null;pickProb(null)}
+
+/* ---------- quick view ---------- */
+function quick(id){
+  const x=byId(id);
+  $("pmbody").innerHTML=`${pic(x,1)}<div class="mtext"><h2 class="h2" style="font-size:26px">${x.n}</h2>
+    <div class="price">${priceHTML(x)}</div>${x.sub?`<p style="font-weight:800;color:#2f7a45;margin:0">Subscribe &amp; save: ${money(x.sub)} every 30 days</p>`:""}<p style="color:var(--mut);font-weight:600">${x.s}</p>
+    <ul>${x.pts.map(t=>`<li>${t}</li>`).join("")}</ul>
+    <button class="btn full" onclick="primary('${x.id}')">${btnLabel()}</button>
+    <small style="color:var(--mut);font-weight:700">🚚 Free shipping $${CONFIG.freeShipAt}+ · ↩️ 30-day guarantee</small></div>`;
+  open("pm");
+}
+
+/* ---------- primary action: waitlist or cart ---------- */
+function primary(id){
+  if(WL){interest=id;const x=byId(id);
+    $("wlh").textContent="Get early access";
+    $("wlp").textContent=`We're opening soon. Leave your email and you'll be first in line for the ${x.n} — with 15% off.`;
+    closeAll();open("wl");return}
+  cart[id]=(cart[id]||0)+1;upd();closeAll();toast("Added to cart 🐾");
+}
+function chg(id,d){cart[id]+=d;if(cart[id]<=0)delete cart[id];upd()}
+function upd(){
+  let n=0,tot=0;
+  const rows=Object.entries(cart).map(([id,q])=>{const x=byId(id);n+=q;tot+=x.p*q;
+    return `<div class="it"><div class="th" style="background:${x.bg}">${x.img?`<img src="${x.img}" alt="">`:x.e}</div>
+      <div><b>${x.n}</b><div class="q"><button onclick="chg('${id}',-1)">−</button>${q}<button onclick="chg('${id}',1)">+</button></div></div>
+      <b>${money(x.p*q)}</b></div>`}).join("");
+  $("items").innerHTML=rows||`<div class="mt">Your cart is empty 🐶<br>Not sure where to start? <a href="#problems" onclick="closeAll()" style="color:var(--o)">Find a fix →</a></div>`;
+  $("count").textContent=n;$("tot").textContent=money(tot);
+  const left=CONFIG.freeShipAt-tot;$("meter").style.width=Math.min(100,tot/CONFIG.freeShipAt*100)+"%";
+  $("shipmsg").textContent=left>0?`You're ${money(left)} away from FREE shipping 🚚`:"🎉 You've unlocked FREE shipping!";
+}
+function checkout(){
+  const lines=Object.entries(cart).map(([id,q])=>[byId(id).variant,q]);
+  if(!lines.length)return toast("Your cart is empty 🐶");
+  if(!CONFIG.shopDomain||lines.some(([v])=>!v))return toast("Checkout not connected yet — add shopDomain + variant IDs in CONFIG");
+  location.href=`https://${CONFIG.shopDomain}/cart/${lines.map(([v,q])=>v+":"+q).join(",")}`;
+}
+
+/* ---------- email signup (Formspree) ---------- */
+async function signup(e,form,where){
+  e.preventDefault();
+  const email=form.email.value.trim();
+  if(!CONFIG.formEndpoint){toast("⚠️ Form not connected yet — see CONFIG");return false}
+  const btn=form.querySelector("button");btn.disabled=true;
+  try{
+    const r=await fetch(CONFIG.formEndpoint,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
+      body:JSON.stringify({email,interest:where==="modal"?interest:"general",source:new URLSearchParams(location.search).get("utm_source")||"direct",_subject:"New Calm Pup signup 🐾",_template:"table"})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||String(j.success)==="false")throw 0;
+    form.reset();closeAll();toast("You're on the list! 15% off is coming your way 🐶");
+  }catch(_){toast("Hmm, that didn't go through. Try again?")}
+  btn.disabled=false;return false;
+}
+
+/* ---------- overlays ---------- */
+function open(id){$(id).classList.add("on");$("ov").classList.add("on")}
+function openCart(){WL?($("join").scrollIntoView({behavior:"smooth"})):open("drawer")}
+function closeAll(){["drawer","pm","wl","ov"].forEach(i=>$(i).classList.remove("on"))}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll()});
+let tt;function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2600)}
+
+/* ---------- nav: highlight current section, sticky mobile CTA ---------- */
+const links=[...document.querySelectorAll(".nav ul a")];
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+["problems","shop","how","faq"].forEach(id=>io.observe($(id)));
+const heroIO=new IntersectionObserver(([en])=>$("mcta").classList.toggle("on",!en.isIntersecting));heroIO.observe(document.querySelector(".hero"));
+
+/* ---------- init ---------- */
+const kit=byId("kit");
+$("bprice").innerHTML=`${money(kit.p)}<s>${money(kit.w)}</s>`;
+const calm=byId("calm");
+$("cprice").innerHTML=`${money(calm.sub)}<s>${money(calm.p)}</s>`;
+$("csub").textContent=`${money(calm.sub)} every 30 days when you subscribe, or ${money(calm.p)} one-time. Skip or cancel anytime.`;
+$("cbtn").textContent=WL?"Get early access to the Chews →":"Subscribe & save 15% →";
+$("bbtn").textContent=WL?"Get early access to the Kit →":"Add the Kit to cart →";
+$("bar").innerHTML=WL?"🐾 <b>Launching soon</b> — join the list for <b>15% off</b> your first order":"🚚 <b>Free US shipping</b> on orders $50+ · 30-day happy-dog guarantee";
+$("ehead").textContent=WL?"Be first in line — get 15% off 🐾":"Get 10% off your first order 🐾";
+$("esub").textContent=WL?"We're opening the doors soon. Early list gets first dibs and the best price.":"Plus calm-dog tips that actually work. One email a week, max.";
+$("ebtn").textContent=WL?"Join the list":"Get my code";
+$("cartlbl").textContent=WL?"Early access":"Cart";$("count").style.display=WL?"none":"";
+document.querySelectorAll(".mailto").forEach(a=>{a.href="mailto:"+CONFIG.email;if(!a.textContent)a.textContent=CONFIG.email});
+$("yr").textContent=new Date().getFullYear();
+if(!CONFIG.formEndpoint)$("dev").style.display="block";
+if(byId("bed").img)$("heroart").innerHTML=`<img src="${byId("bed").img}" alt="Calming Donut Bed">`;
+renderProbs();renderGrid();upd();
+</script>
+</body>
+</html>
